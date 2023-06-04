@@ -1,0 +1,19 @@
+1.
+SELECT MARK, COUNT(COLOR) 
+FROM AUTO 
+WHERE MARK IN ('BMW', 'LADA') 
+GROUP BY MARK;
+2.
+SELECT MARK, 
+	COUNT(MARK) AS Number_of_cars, 
+	( 
+	SELECT COUNT(*) FROM AUTO
+	) - COUNT(MARK) AS Lost_cars 
+FROM AUTO 
+GROUP BY MARK;
+3.
+SELECT id, data 
+FROM test_a a 
+LEFT JOIN test_b b 
+USING(id) 
+WHERE b.id IS NULL;
